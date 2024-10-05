@@ -1216,6 +1216,8 @@ alias of:N*T*Ccypress,cyw4373a0-bt hci_uart
 alias of:N*T*Ccypress,cyw4373a0-btC* hci_uart
 alias of:N*T*Cinfineon,cyw55572-bt hci_uart
 alias of:N*T*Cinfineon,cyw55572-btC* hci_uart
+alias of:N*T*Cqcom,qca2066-bt hci_uart
+alias of:N*T*Cqcom,qca2066-btC* hci_uart
 alias of:N*T*Cqcom,qca6174-bt hci_uart
 alias of:N*T*Cqcom,qca6174-btC* hci_uart
 alias of:N*T*Cqcom,qca6390-bt hci_uart
