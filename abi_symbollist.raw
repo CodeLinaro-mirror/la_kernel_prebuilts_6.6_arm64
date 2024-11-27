@@ -242,6 +242,8 @@ __mdiobus_write
 __media_device_register
 __media_entity_next_link
 __media_entity_setup_link
+__mem_cgroup_charge
+__mem_cgroup_uncharge
 __memcat_p
 __memcpy
 __memcpy_fromio
@@ -252,8 +254,10 @@ __mmap_lock_do_trace_acquire_returned
 __mmap_lock_do_trace_released
 __mmap_lock_do_trace_start_locking
 __mmc_claim_host
+__mmc_poll_for_busy
 __mmdrop
 __mod_lruvec_state
+__mod_memcg_lruvec_state
 __mod_zone_page_state
 __module_get
 __module_put_and_kthread_exit
@@ -466,6 +470,8 @@ __traceiter_android_rvh_is_cpu_allowed
 __traceiter_android_rvh_ksys_umount
 __traceiter_android_rvh_logbuf
 __traceiter_android_rvh_migrate_queued_task
+__traceiter_android_rvh_mmc_resume
+__traceiter_android_rvh_mmc_suspend
 __traceiter_android_rvh_new_task_stats
 __traceiter_android_rvh_ogki_audit_log_module_sign
 __traceiter_android_rvh_ogki_audit_log_usercopy
@@ -780,6 +786,7 @@ __traceiter_android_vh_meminfo_cache_adjust
 __traceiter_android_vh_meminfo_proc_show
 __traceiter_android_vh_mglru_should_abort_scan
 __traceiter_android_vh_mglru_should_abort_scan_order
+__traceiter_android_vh_migration_target_bypass
 __traceiter_android_vh_mm_direct_reclaim_enter
 __traceiter_android_vh_mm_direct_reclaim_exit
 __traceiter_android_vh_mm_kcompactd_cpu_online
@@ -855,6 +862,7 @@ __traceiter_android_vh_record_rtmutex_lock_starttime
 __traceiter_android_vh_record_rwsem_lock_starttime
 __traceiter_android_vh_record_rwsem_reader_owned
 __traceiter_android_vh_record_rwsem_writer_owned
+__traceiter_android_vh_refault_filemap_add_folio
 __traceiter_android_vh_regmap_update
 __traceiter_android_vh_restore_mm_flags
 __traceiter_android_vh_resume_end
@@ -929,7 +937,6 @@ __traceiter_android_vh_smaps_pte_entry
 __traceiter_android_vh_smaps_swap_shared
 __traceiter_android_vh_sock_create
 __traceiter_android_vh_split_large_folio_bypass
-__traceiter_android_vh_suitable_migration_target_bypass
 __traceiter_android_vh_swap_writepage
 __traceiter_android_vh_swapmem_gather_add_bypass
 __traceiter_android_vh_swapmem_gather_finish
@@ -1160,6 +1167,8 @@ __tracepoint_android_rvh_is_cpu_allowed
 __tracepoint_android_rvh_ksys_umount
 __tracepoint_android_rvh_logbuf
 __tracepoint_android_rvh_migrate_queued_task
+__tracepoint_android_rvh_mmc_resume
+__tracepoint_android_rvh_mmc_suspend
 __tracepoint_android_rvh_new_task_stats
 __tracepoint_android_rvh_ogki_audit_log_module_sign
 __tracepoint_android_rvh_ogki_audit_log_usercopy
@@ -1474,6 +1483,7 @@ __tracepoint_android_vh_meminfo_cache_adjust
 __tracepoint_android_vh_meminfo_proc_show
 __tracepoint_android_vh_mglru_should_abort_scan
 __tracepoint_android_vh_mglru_should_abort_scan_order
+__tracepoint_android_vh_migration_target_bypass
 __tracepoint_android_vh_mm_direct_reclaim_enter
 __tracepoint_android_vh_mm_direct_reclaim_exit
 __tracepoint_android_vh_mm_kcompactd_cpu_online
@@ -1549,6 +1559,7 @@ __tracepoint_android_vh_record_rtmutex_lock_starttime
 __tracepoint_android_vh_record_rwsem_lock_starttime
 __tracepoint_android_vh_record_rwsem_reader_owned
 __tracepoint_android_vh_record_rwsem_writer_owned
+__tracepoint_android_vh_refault_filemap_add_folio
 __tracepoint_android_vh_regmap_update
 __tracepoint_android_vh_restore_mm_flags
 __tracepoint_android_vh_resume_end
@@ -1623,7 +1634,6 @@ __tracepoint_android_vh_smaps_pte_entry
 __tracepoint_android_vh_smaps_swap_shared
 __tracepoint_android_vh_sock_create
 __tracepoint_android_vh_split_large_folio_bypass
-__tracepoint_android_vh_suitable_migration_target_bypass
 __tracepoint_android_vh_swap_writepage
 __tracepoint_android_vh_swapmem_gather_add_bypass
 __tracepoint_android_vh_swapmem_gather_finish
@@ -1909,6 +1919,8 @@ alarm_start
 alarm_start_relative
 alarm_try_to_cancel
 alarmtimer_get_rtcdev
+all_pcp_disable
+all_pcp_enable
 all_vm_events
 alloc_anon_inode
 alloc_can_err_skb
@@ -2154,6 +2166,7 @@ bt_warn
 btbcm_set_bdaddr
 btbcm_setup_apple
 btbcm_setup_patchram
+bucket_order
 buffer_migrate_folio
 build_skb
 bus_find_device
@@ -3052,7 +3065,16 @@ divider_round_rate_parent
 dm_bio_from_per_bio_data
 dm_bufio_read
 dm_disk
+dm_get_device
+dm_io
+dm_io_client_create
+dm_io_client_destroy
+dm_per_bio_data
+dm_put_device
+dm_register_target
 dm_table_get_md
+dm_table_get_mode
+dm_unregister_target
 dma_alloc_attrs
 dma_alloc_pages
 dma_async_device_register
@@ -3661,6 +3683,7 @@ dst_release
 dump_backtrace
 dump_page
 dump_stack
+dump_tasks
 dup_iter
 dw_handle_msi_irq
 dw_pcie_ep_init
@@ -5151,6 +5174,7 @@ mmc_hw_reset
 mmc_issue_type
 mmc_of_parse
 mmc_of_parse_voltage
+mmc_prepare_busy_cmd
 mmc_put_card
 mmc_pwrseq_register
 mmc_pwrseq_unregister
@@ -5163,6 +5187,7 @@ mmc_release_host
 mmc_remove_host
 mmc_request_done
 mmc_retune_hold
+mmc_retune_release
 mmc_retune_timer_stop
 mmc_select_bus_width
 mmc_select_card
@@ -5172,6 +5197,7 @@ mmc_select_hs_ddr
 mmc_select_timing
 mmc_send_status
 mmc_send_tuning
+mmc_set_blocklen
 mmc_set_bus_mode
 mmc_set_bus_width
 mmc_set_clock
@@ -5328,6 +5354,7 @@ nop_posix_acl_access
 nop_posix_acl_default
 notify_change
 nr_cpu_ids
+nr_free_buffer_pages
 nr_ipi_get
 nr_irqs
 nr_running
@@ -7551,6 +7578,7 @@ typec_partner_set_identity
 typec_partner_set_pd_revision
 typec_partner_set_svdm_version
 typec_port_register_altmode
+typec_port_register_altmodes
 typec_register_partner
 typec_register_port
 typec_set_data_role
@@ -7665,6 +7693,7 @@ unlock_page
 unlock_rename
 unlock_two_nondirectories
 unmap_mapping_range
+unpack_shadow
 unpin_user_page
 unpin_user_pages
 unpin_user_pages_dirty_lock
