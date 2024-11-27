@@ -186,7 +186,9 @@
   clk_put
   clk_register
   clk_register_composite
+  clk_restore_context
   clk_round_rate
+  clk_save_context
   clk_set_max_rate
   clk_set_min_rate
   clk_set_parent
@@ -543,6 +545,15 @@
   dma_sync_single_for_device
   dma_unmap_page_attrs
   dma_unmap_sg_attrs
+  dm_get_device
+  dm_io
+  dm_io_client_create
+  dm_io_client_destroy
+  dm_per_bio_data
+  dm_put_device
+  dm_register_target
+  dm_table_get_mode
+  dm_unregister_target
   d_obtain_alias
   do_SAK
   do_trace_netlink_extack
@@ -731,6 +742,7 @@
   drm_property_blob_get
   drm_property_blob_put
   drm_property_create
+  drm_property_create_blob
   drm_property_create_bool
   drm_property_create_enum
   drm_property_create_range
@@ -1335,6 +1347,7 @@
   mmc_cqe_request_done
   mmc_detect_change
   mmc_free_host
+  mmc_get_ext_csd
   mmc_gpiod_request_cd
   mmc_gpio_get_cd
   mmc_of_parse
@@ -1673,6 +1686,7 @@
   platform_get_irq_byname_optional
   platform_get_resource
   platform_get_resource_byname
+  platform_irq_count
   pm_genpd_add_subdomain
   pm_genpd_init
   pm_genpd_remove
@@ -2197,6 +2211,7 @@
   thermal_zone_device_unregister
   thermal_zone_device_update
   thermal_zone_get_num_trips
+  thermal_zone_get_temp
   __thermal_zone_get_trip
   thermal_zone_get_trip
   thermal_zone_get_zone_by_name
@@ -9244,6 +9259,7 @@
   __traceiter_android_vh_madvise_pageout_swap_entry
   __traceiter_android_vh_madvise_swapin_walk_pmd_entry
   __traceiter_android_vh_meminfo_proc_show
+  __traceiter_android_vh_migration_target_bypass
   __traceiter_android_vh_mmc_update_mmc_queue
   __traceiter_android_vh_si_meminfo_adjust_shmem
   __traceiter_android_vh_shmem_mod_shmem
@@ -9262,7 +9278,6 @@
   __traceiter_android_vh_smaps_pte_entry
   __traceiter_android_vh_smaps_swap_shared
   __traceiter_android_vh_show_smap_swap_shared
-  __traceiter_android_vh_suitable_migration_target_bypass
   __traceiter_android_vh_split_large_folio_bypass
   __traceiter_android_vh_sync_irq_wait_finish
   __traceiter_android_vh_sync_irq_wait_start
@@ -9333,6 +9348,7 @@
   __tracepoint_android_vh_madvise_pageout_swap_entry
   __tracepoint_android_vh_madvise_swapin_walk_pmd_entry
   __tracepoint_android_vh_meminfo_proc_show
+  __tracepoint_android_vh_migration_target_bypass
   __tracepoint_android_vh_mmc_update_mmc_queue
   __tracepoint_android_vh_si_meminfo_adjust_shmem
   __tracepoint_android_vh_shmem_mod_shmem
@@ -9352,7 +9368,6 @@
   __tracepoint_android_vh_smaps_swap_shared
   __tracepoint_android_vh_show_smap_swap_shared
   __tracepoint_android_vh_split_large_folio_bypass
-  __tracepoint_android_vh_suitable_migration_target_bypass
   __tracepoint_android_vh_sync_irq_wait_finish
   __tracepoint_android_vh_sync_irq_wait_start
   __tracepoint_android_vh_try_to_freeze_todo
@@ -17108,6 +17123,7 @@
   typec_partner_set_identity
   typec_partner_set_pd_revision
   typec_partner_set_svdm_version
+  typec_port_register_altmodes
   typec_register_partner
   typec_register_port
   typec_set_data_role
@@ -21050,6 +21066,7 @@
   drop_reasons_unregister_subsys
   dump_backtrace
   dump_stack
+  dump_tasks
   dw_handle_msi_irq
   dw_pcie_find_capability
   dw_pcie_host_init
@@ -26564,12 +26581,15 @@
   mmc_cqe_request_done
   mmc_execute_tuning
   mmc_hs200_tuning
+  __mmc_poll_for_busy
+  mmc_prepare_busy_cmd
   mmc_issue_type
   mmc_of_parse
   mmc_regulator_get_supply
   mmc_regulator_set_ocr
   mmc_regulator_set_vqmmc
   mmc_retune_hold
+  mmc_retune_release
   mmc_select_bus_width
   mmc_select_card
   mmc_select_hs
@@ -27441,6 +27461,8 @@
   __traceiter_android_rvh_irqs_disable
   __traceiter_android_rvh_irqs_enable
   __traceiter_android_rvh_is_cpu_allowed
+  __traceiter_android_rvh_mmc_resume
+  __traceiter_android_rvh_mmc_suspend
   __traceiter_android_rvh_new_task_stats
   __traceiter_android_rvh_preempt_disable
   __traceiter_android_rvh_preempt_enable
@@ -27545,6 +27567,8 @@
   __tracepoint_android_rvh_irqs_disable
   __tracepoint_android_rvh_irqs_enable
   __tracepoint_android_rvh_is_cpu_allowed
+  __tracepoint_android_rvh_mmc_resume
+  __tracepoint_android_rvh_mmc_suspend
   __tracepoint_android_rvh_new_task_stats
   __tracepoint_android_rvh_preempt_disable
   __tracepoint_android_rvh_preempt_enable
@@ -30789,8 +30813,15 @@ wrap_directory_iterator
   blk_mq_quiesce_tagset
   blk_mq_unquiesce_tagset
   memblock_free
+  __mem_cgroup_charge
+  __mem_cgroup_uncharge
+  __mod_memcg_lruvec_state
+  unpack_shadow
+  bucket_order
   mem_cgroup_move_account
   sum_mthp_stat
+  all_pcp_disable
+  all_pcp_enable
   __traceiter_android_vh_anon_vma_name_recog
   __traceiter_android_vh_restore_mm_flags
   __traceiter_android_vh_update_vma_flags
@@ -30807,12 +30838,16 @@ wrap_directory_iterator
   __tracepoint_android_vh_customize_thp_pcp_order
   __traceiter_android_vh_customize_thp_gfp_orders
   __tracepoint_android_vh_customize_thp_gfp_orders
+  __traceiter_android_vh_refault_filemap_add_folio
+  __tracepoint_android_vh_refault_filemap_add_folio
   __traceiter_android_vh_mem_cgroup_charge
   __traceiter_android_vh_filemap_add_folio
   __traceiter_android_vh_shrink_node
   __tracepoint_android_vh_mem_cgroup_charge
   __tracepoint_android_vh_filemap_add_folio
   __tracepoint_android_vh_shrink_node
+  mmc_set_blocklen
+  nr_free_buffer_pages
 
 #required by metis.ko module
   __traceiter_android_vh_rwsem_read_wait_start
