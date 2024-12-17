@@ -2,6 +2,7 @@
 # commonly used symbols
   module_layout
   __put_task_struct
+  utf8_data_table
 
 [abi_symbol_list]
   add_cpu
@@ -9639,6 +9640,8 @@
   __traceiter_android_vh_wq_wake_idle_worker
   __tracepoint_android_vh_wq_queue_work
   __tracepoint_android_vh_wq_wake_idle_worker
+  __traceiter_android_vh_mutex_unlock_slowpath_bf_wakeq
+  __tracepoint_android_vh_mutex_unlock_slowpath_bf_wakeq
 
 [abi_symbol_list]
   add_device_randomness
@@ -20230,6 +20233,7 @@
   vfs_path_lookup
   vfs_rename
   vfs_rmdir
+  vfs_splice_read
   vfs_statfs
   vfs_unlink
   __vmalloc_array
@@ -29132,8 +29136,11 @@ wrap_directory_iterator
   param_ops_uint
   passthru_features_check
   pci_bus_type
+  pci_iomap_range
   pci_release_region
+  pci_release_selected_regions
   pci_request_region
+  pci_request_selected_regions
   __per_cpu_offset
   perf_trace_buf_alloc
   perf_trace_run_bpf_submit
@@ -30549,10 +30556,12 @@ wrap_directory_iterator
   __traceiter_android_vh_lock_folio_drop_mmap_start
   __traceiter_android_vh_look_around
   __traceiter_android_vh_look_around_migrate_folio
+  __traceiter_android_vh_lruvec_add_folio
+  __traceiter_android_vh_lruvec_del_folio
   __traceiter_android_vh_mmap_region
   __traceiter_android_vh_mutex_init
   __traceiter_android_vh_mutex_unlock_slowpath
-  __traceiter_android_vh_mutex_unlock_slowpath_before_wakeq
+  __traceiter_android_vh_mutex_unlock_slowpath_bf_wakeq
   __traceiter_android_vh_mutex_wait_finish
   __traceiter_android_vh_mutex_wait_start
   __traceiter_android_vh_oom_swapmem_gather_finish
@@ -30675,10 +30684,12 @@ wrap_directory_iterator
   __tracepoint_android_vh_lock_folio_drop_mmap_start
   __tracepoint_android_vh_look_around
   __tracepoint_android_vh_look_around_migrate_folio
+  __tracepoint_android_vh_lruvec_add_folio
+  __tracepoint_android_vh_lruvec_del_folio
   __tracepoint_android_vh_mmap_region
   __tracepoint_android_vh_mutex_init
   __tracepoint_android_vh_mutex_unlock_slowpath
-  __tracepoint_android_vh_mutex_unlock_slowpath_before_wakeq
+  __tracepoint_android_vh_mutex_unlock_slowpath_bf_wakeq
   __tracepoint_android_vh_mutex_wait_finish
   __tracepoint_android_vh_mutex_wait_start
   __tracepoint_android_vh_oom_swapmem_gather_finish
