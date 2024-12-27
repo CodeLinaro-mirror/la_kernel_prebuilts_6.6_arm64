@@ -1243,6 +1243,8 @@ alias sdio:c02v*d* btsdio
 alias sdio:c03v*d* btsdio
 alias rtnl-link-vlan 8021q
 alias virtio:d00000013v* vmw_vsock_virtio_transport
+alias tls tls
+alias tcp-ulp-tls tls
 alias net-pf-29 can
 alias can-proto-1 can_raw
 alias can-proto-2 can_bcm
