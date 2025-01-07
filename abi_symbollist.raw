@@ -285,6 +285,7 @@ __of_get_address
 __of_mdiobus_register
 __of_parse_phandle_with_args
 __of_reset_control_get
+__oom_reap_task_mm
 __page_file_index
 __page_frag_cache_drain
 __page_pinner_put_page
@@ -435,6 +436,7 @@ __traceiter_android_rvh_dma_buf_stats_teardown
 __traceiter_android_rvh_do_el1_bti
 __traceiter_android_rvh_do_el1_fpac
 __traceiter_android_rvh_do_el1_undef
+__traceiter_android_rvh_do_read_fault
 __traceiter_android_rvh_do_sched_yield
 __traceiter_android_rvh_do_sea
 __traceiter_android_rvh_do_sp_pc_abort
@@ -640,6 +642,7 @@ __traceiter_android_vh_check_file_open
 __traceiter_android_vh_check_folio_look_around_ref
 __traceiter_android_vh_check_mmap_file
 __traceiter_android_vh_check_nanosleep_syscall
+__traceiter_android_vh_check_new_page
 __traceiter_android_vh_check_uninterruptible_tasks
 __traceiter_android_vh_check_uninterruptible_tasks_dn
 __traceiter_android_vh_cleanup_old_buffers_bypass
@@ -729,6 +732,7 @@ __traceiter_android_vh_free_mod_mem
 __traceiter_android_vh_free_oem_binder_struct
 __traceiter_android_vh_free_pages_ok_bypass
 __traceiter_android_vh_free_pages_prepare_bypass
+__traceiter_android_vh_free_pages_prepare_init
 __traceiter_android_vh_free_task
 __traceiter_android_vh_free_unref_page_bypass
 __traceiter_android_vh_free_user
@@ -852,6 +856,7 @@ __traceiter_android_vh_page_should_be_protected
 __traceiter_android_vh_percpu_rwsem_down_read
 __traceiter_android_vh_percpu_rwsem_up_write
 __traceiter_android_vh_percpu_rwsem_wq_add
+__traceiter_android_vh_post_alloc_hook
 __traceiter_android_vh_print_slabinfo_header
 __traceiter_android_vh_printk_caller
 __traceiter_android_vh_printk_caller_id
@@ -1060,6 +1065,11 @@ __traceiter_dwc3_ep_queue
 __traceiter_dwc3_readl
 __traceiter_dwc3_writel
 __traceiter_error_report_end
+__traceiter_f2fs_gc_begin
+__traceiter_f2fs_gc_end
+__traceiter_f2fs_sync_file_enter
+__traceiter_f2fs_sync_file_exit
+__traceiter_f2fs_write_checkpoint
 __traceiter_gpu_mem_total
 __traceiter_ipi_entry
 __traceiter_ipi_exit
@@ -1116,6 +1126,7 @@ __traceiter_sys_exit
 __traceiter_task_newtask
 __traceiter_task_rename
 __traceiter_tcp_retransmit_skb
+__traceiter_ufshcd_command
 __traceiter_vm_unmapped_area
 __traceiter_workqueue_execute_end
 __traceiter_workqueue_execute_start
@@ -1157,6 +1168,7 @@ __tracepoint_android_rvh_dma_buf_stats_teardown
 __tracepoint_android_rvh_do_el1_bti
 __tracepoint_android_rvh_do_el1_fpac
 __tracepoint_android_rvh_do_el1_undef
+__tracepoint_android_rvh_do_read_fault
 __tracepoint_android_rvh_do_sched_yield
 __tracepoint_android_rvh_do_sea
 __tracepoint_android_rvh_do_sp_pc_abort
@@ -1362,6 +1374,7 @@ __tracepoint_android_vh_check_file_open
 __tracepoint_android_vh_check_folio_look_around_ref
 __tracepoint_android_vh_check_mmap_file
 __tracepoint_android_vh_check_nanosleep_syscall
+__tracepoint_android_vh_check_new_page
 __tracepoint_android_vh_check_uninterruptible_tasks
 __tracepoint_android_vh_check_uninterruptible_tasks_dn
 __tracepoint_android_vh_cleanup_old_buffers_bypass
@@ -1451,6 +1464,7 @@ __tracepoint_android_vh_free_mod_mem
 __tracepoint_android_vh_free_oem_binder_struct
 __tracepoint_android_vh_free_pages_ok_bypass
 __tracepoint_android_vh_free_pages_prepare_bypass
+__tracepoint_android_vh_free_pages_prepare_init
 __tracepoint_android_vh_free_task
 __tracepoint_android_vh_free_unref_page_bypass
 __tracepoint_android_vh_free_user
@@ -1574,6 +1588,7 @@ __tracepoint_android_vh_page_should_be_protected
 __tracepoint_android_vh_percpu_rwsem_down_read
 __tracepoint_android_vh_percpu_rwsem_up_write
 __tracepoint_android_vh_percpu_rwsem_wq_add
+__tracepoint_android_vh_post_alloc_hook
 __tracepoint_android_vh_print_slabinfo_header
 __tracepoint_android_vh_printk_caller
 __tracepoint_android_vh_printk_caller_id
@@ -1782,6 +1797,11 @@ __tracepoint_dwc3_ep_queue
 __tracepoint_dwc3_readl
 __tracepoint_dwc3_writel
 __tracepoint_error_report_end
+__tracepoint_f2fs_gc_begin
+__tracepoint_f2fs_gc_end
+__tracepoint_f2fs_sync_file_enter
+__tracepoint_f2fs_sync_file_exit
+__tracepoint_f2fs_write_checkpoint
 __tracepoint_gpu_mem_total
 __tracepoint_ipi_entry
 __tracepoint_ipi_exit
@@ -1838,6 +1858,7 @@ __tracepoint_sys_exit
 __tracepoint_task_newtask
 __tracepoint_task_rename
 __tracepoint_tcp_retransmit_skb
+__tracepoint_ufshcd_command
 __tracepoint_vm_unmapped_area
 __tracepoint_workqueue_execute_end
 __tracepoint_workqueue_execute_start
@@ -2376,6 +2397,7 @@ clk_register_divider_table
 clk_register_fixed_factor
 clk_register_fixed_rate
 clk_register_gate
+clk_register_mux_table
 clk_restore_context
 clk_round_rate
 clk_save_context
@@ -2951,6 +2973,7 @@ devm_clk_put
 devm_clk_register
 devm_devfreq_add_device
 devm_devfreq_register_notifier
+devm_devfreq_register_opp_notifier
 devm_devfreq_remove_device
 devm_devfreq_unregister_notifier
 devm_device_add_group
@@ -3249,6 +3272,7 @@ dmam_alloc_attrs
 dmam_free_coherent
 dmam_pool_create
 do_SAK
+do_send_sig_info
 do_trace_netlink_extack
 do_traversal_all_lruvec
 do_wait_intr
@@ -3980,6 +4004,7 @@ ftrace_dump
 full_name_hash
 fw_devlink_purge_absent_suppliers
 fwnode_connection_find_match
+fwnode_create_software_node
 fwnode_device_is_available
 fwnode_find_reference
 fwnode_get_name
@@ -4133,6 +4158,7 @@ get_random_u16
 get_random_u32
 get_random_u64
 get_random_u8
+get_reclaim_params
 get_sg_io_hdr
 get_slabinfo
 get_task_cred
@@ -4552,6 +4578,7 @@ input_alloc_absinfo
 input_allocate_device
 input_close_device
 input_copy_abs
+input_device_enabled
 input_event
 input_ff_create
 input_ff_create_memless
@@ -6748,6 +6775,7 @@ set_normalized_timespec64
 set_page_dirty
 set_page_dirty_lock
 set_page_writeback
+set_reclaim_params
 set_task_cpu
 set_task_ioprio
 set_user_nice
@@ -7402,6 +7430,7 @@ tcf_queue_work
 tcf_register_action
 tcf_unregister_action
 tcp_bpf_sendmsg_redir
+tcp_cong_avoid_ai
 tcp_done
 tcp_hashinfo
 tcp_memory_pressure
@@ -7411,6 +7440,7 @@ tcp_read_done
 tcp_read_sock
 tcp_recv_skb
 tcp_register_ulp
+tcp_reno_undo_cwnd
 tcp_send_active_reset
 tcp_sendmsg_locked
 tcp_sock_set_cork
@@ -8141,6 +8171,7 @@ v4l2_subdev_set_routing_with_fmt
 v4l2_subdev_state_get_opposite_stream_format
 v4l2_subdev_state_get_stream_format
 v4l2_subdev_state_xlate_streams
+v4l2_type_names
 v4l2_valid_dv_timings
 v4l_bound_align_image
 vb2_buffer_done
