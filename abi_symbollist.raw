@@ -688,6 +688,7 @@ __traceiter_android_vh_dma_heap_buffer_alloc_end
 __traceiter_android_vh_dma_heap_buffer_alloc_start
 __traceiter_android_vh_dmabuf_page_pool_free_bypass
 __traceiter_android_vh_do_anonymous_page
+__traceiter_android_vh_do_async_mmap_readahead
 __traceiter_android_vh_do_folio_trylock
 __traceiter_android_vh_do_futex
 __traceiter_android_vh_do_group_exit
@@ -766,6 +767,7 @@ __traceiter_android_vh_inet_csk_clone_lock
 __traceiter_android_vh_init_adjust_zone_wmark
 __traceiter_android_vh_inode_lru_isolate
 __traceiter_android_vh_invalidate_mapping_pagevec
+__traceiter_android_vh_io_statistics
 __traceiter_android_vh_iommu_iovad_alloc_iova
 __traceiter_android_vh_iommu_iovad_free_iova
 __traceiter_android_vh_ipi_stop
@@ -851,6 +853,7 @@ __traceiter_android_vh_oom_swapmem_gather_init
 __traceiter_android_vh_page_add_new_anon_rmap
 __traceiter_android_vh_page_cache_readahead_end
 __traceiter_android_vh_page_cache_readahead_start
+__traceiter_android_vh_page_private_mod
 __traceiter_android_vh_page_referenced_check_bypass
 __traceiter_android_vh_page_should_be_protected
 __traceiter_android_vh_percpu_rwsem_down_read
@@ -864,6 +867,7 @@ __traceiter_android_vh_printk_ext_header
 __traceiter_android_vh_printk_hotplug
 __traceiter_android_vh_prio_inheritance
 __traceiter_android_vh_prio_restore
+__traceiter_android_vh_proactive_compact_stop
 __traceiter_android_vh_process_madvise
 __traceiter_android_vh_process_madvise_begin
 __traceiter_android_vh_process_madvise_iter
@@ -1420,6 +1424,7 @@ __tracepoint_android_vh_dma_heap_buffer_alloc_end
 __tracepoint_android_vh_dma_heap_buffer_alloc_start
 __tracepoint_android_vh_dmabuf_page_pool_free_bypass
 __tracepoint_android_vh_do_anonymous_page
+__tracepoint_android_vh_do_async_mmap_readahead
 __tracepoint_android_vh_do_folio_trylock
 __tracepoint_android_vh_do_futex
 __tracepoint_android_vh_do_group_exit
@@ -1498,6 +1503,7 @@ __tracepoint_android_vh_inet_csk_clone_lock
 __tracepoint_android_vh_init_adjust_zone_wmark
 __tracepoint_android_vh_inode_lru_isolate
 __tracepoint_android_vh_invalidate_mapping_pagevec
+__tracepoint_android_vh_io_statistics
 __tracepoint_android_vh_iommu_iovad_alloc_iova
 __tracepoint_android_vh_iommu_iovad_free_iova
 __tracepoint_android_vh_ipi_stop
@@ -1583,6 +1589,7 @@ __tracepoint_android_vh_oom_swapmem_gather_init
 __tracepoint_android_vh_page_add_new_anon_rmap
 __tracepoint_android_vh_page_cache_readahead_end
 __tracepoint_android_vh_page_cache_readahead_start
+__tracepoint_android_vh_page_private_mod
 __tracepoint_android_vh_page_referenced_check_bypass
 __tracepoint_android_vh_page_should_be_protected
 __tracepoint_android_vh_percpu_rwsem_down_read
@@ -1596,6 +1603,7 @@ __tracepoint_android_vh_printk_ext_header
 __tracepoint_android_vh_printk_hotplug
 __tracepoint_android_vh_prio_inheritance
 __tracepoint_android_vh_prio_restore
+__tracepoint_android_vh_proactive_compact_stop
 __tracepoint_android_vh_process_madvise
 __tracepoint_android_vh_process_madvise_begin
 __tracepoint_android_vh_process_madvise_iter
@@ -2226,6 +2234,10 @@ bpf_trace_run7
 bpf_trace_run8
 bpf_trace_run9
 bpf_warn_invalid_xdp_action
+br_multicast_has_querier_adjacent
+br_multicast_has_querier_anywhere
+br_multicast_has_router_adjacent
+br_multicast_list_adjacent
 bsearch
 bsg_job_done
 bsg_remove_queue
@@ -2754,6 +2766,7 @@ dev_get_by_index_rcu
 dev_get_by_name
 dev_get_by_name_rcu
 dev_get_flags
+dev_get_iflink
 dev_get_regmap
 dev_get_stats
 dev_get_tstats64
@@ -4691,6 +4704,7 @@ ip6_route_output_flags
 ip_compute_csum
 ip_local_deliver
 ip_local_out
+ip_mc_check_igmp
 ip_mc_join_group
 ip_queue_xmit
 ip_route_me_harder
@@ -4702,6 +4716,7 @@ ipv6_dev_find
 ipv6_dev_get_saddr
 ipv6_ext_hdr
 ipv6_find_hdr
+ipv6_mc_check_mld
 ipv6_select_ident
 ipv6_skip_exthdr
 ipv6_stub
@@ -5349,6 +5364,7 @@ netdev_increment_features
 netdev_info
 netdev_is_rx_handler_busy
 netdev_lower_state_changed
+netdev_master_upper_dev_get_rcu
 netdev_master_upper_dev_link
 netdev_name_in_use
 netdev_notice
@@ -5812,6 +5828,8 @@ percpu_counter_add_batch
 percpu_counter_batch
 percpu_down_write
 percpu_free_rwsem
+percpu_ref_exit
+percpu_ref_init
 percpu_up_write
 perf_aux_output_begin
 perf_aux_output_end
@@ -6774,6 +6792,7 @@ set_nlink
 set_normalized_timespec64
 set_page_dirty
 set_page_dirty_lock
+set_page_private
 set_page_writeback
 set_reclaim_params
 set_task_cpu
@@ -6895,6 +6914,7 @@ skb_free_datagram
 skb_orphan_partial
 skb_page_frag_refill
 skb_partial_csum_set
+skb_prepare_seq_read
 skb_pull
 skb_pull_data
 skb_pull_rcsum
@@ -6906,6 +6926,7 @@ skb_queue_tail
 skb_realloc_headroom
 skb_recv_datagram
 skb_scrub_packet
+skb_seq_read
 skb_set_owner_w
 skb_splice_bits
 skb_split
@@ -8027,6 +8048,7 @@ user_revoke
 usleep_range_state
 utf16s_to_utf8s
 utf8_data_table
+utf8_data_table_new
 utf8_to_utf32
 utf8s_to_utf16s
 uuid_gen
