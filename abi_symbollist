@@ -9461,6 +9461,8 @@
   tty_unlock
   tty_set_ldisc
   tty_kclose
+  percpu_ref_init
+  percpu_ref_exit
   android_debug_per_cpu_symbol
   android_debug_symbol
   __traceiter_rpm_idle
@@ -9658,6 +9660,8 @@
   __tracepoint_android_vh_wq_wake_idle_worker
   __traceiter_android_vh_mutex_unlock_slowpath_bf_wakeq
   __tracepoint_android_vh_mutex_unlock_slowpath_bf_wakeq
+  __traceiter_android_vh_io_statistics
+  __tracepoint_android_vh_io_statistics
 
 [abi_symbol_list]
   add_device_randomness
@@ -13901,6 +13905,7 @@
   vm_iomap_memory
   vm_map_ram
   vm_unmap_ram
+  vm_unmapped_area
   vprintk
   vscnprintf
   vsnprintf
@@ -21876,6 +21881,7 @@
   pci_wake_from_d3
   pci_write_config_dword
   pci_write_config_word
+  pcpu_nr_pages
   percpu_counter_add_batch
   percpu_counter_batch
   __per_cpu_offset
@@ -22231,6 +22237,7 @@
   __seq_open_private
   seq_printf
   seq_putc
+  seq_put_decimal_ll
   seq_put_decimal_ull
   seq_put_decimal_ull_width
   seq_puts
@@ -22247,6 +22254,7 @@
   set_page_dirty
   set_page_dirty_lock
   __SetPageMovable
+  set_page_private
   set_reclaim_params
   set_task_cpu
   set_user_nice
@@ -22611,6 +22619,8 @@
   __traceiter_android_rvh_update_rt_rq_load_avg
   __traceiter_android_rvh_util_est_update
   __traceiter_android_rvh_util_fits_cpu
+  __traceiter_android_rvh_vmscan_kswapd_done
+  __traceiter_android_rvh_vmscan_kswapd_wake
   __traceiter_android_vh_arch_set_freq_scale
   __traceiter_android_vh_binder_proc_transaction_finish
   __traceiter_android_vh_binder_restore_priority
@@ -22729,6 +22739,8 @@
   __tracepoint_android_rvh_update_rt_rq_load_avg
   __tracepoint_android_rvh_util_est_update
   __tracepoint_android_rvh_util_fits_cpu
+  __tracepoint_android_rvh_vmscan_kswapd_done
+  __tracepoint_android_rvh_vmscan_kswapd_wake
   __tracepoint_android_vh_arch_set_freq_scale
   __tracepoint_android_vh_binder_proc_transaction_finish
   __tracepoint_android_vh_binder_restore_priority
@@ -22990,6 +23002,7 @@
   virtqueue_kick_prepare
   virtqueue_notify
   vmalloc
+  vmalloc_nr_pages
   vmalloc_to_page
   vmalloc_user
   vmap
@@ -26161,6 +26174,7 @@
   extcon_get_property
   extcon_get_state
   extcon_register_notifier
+  extcon_set_property_capability
   extcon_set_state
   extcon_set_state_sync
   fasync_helper
@@ -28268,6 +28282,7 @@ wrap_directory_iterator
   __traceiter_android_vh_ipi_stop
   __traceiter_android_vh_mutex_unlock_slowpath
   __traceiter_android_vh_mutex_wait_start
+  __traceiter_android_vh_proactive_compact_stop
   __traceiter_android_vh_rwsem_downgrade_wake_finish
   __traceiter_android_vh_rwsem_read_wait_start
   __traceiter_android_vh_rwsem_read_wait_finish
@@ -28341,6 +28356,7 @@ wrap_directory_iterator
   __tracepoint_android_vh_ipi_stop
   __tracepoint_android_vh_mutex_unlock_slowpath
   __tracepoint_android_vh_mutex_wait_start
+  __tracepoint_android_vh_proactive_compact_stop
   __tracepoint_android_vh_rwsem_downgrade_wake_finish
   __tracepoint_android_vh_rwsem_read_wait_start
   __tracepoint_android_vh_rwsem_read_wait_finish
@@ -28442,6 +28458,18 @@ wrap_directory_iterator
   snd_usb_register_platform_ops
   snd_usb_unlock_shutdown
   snd_usb_unregister_platform_ops
+
+# required by batman-adv.ko
+  br_multicast_has_querier_adjacent
+  br_multicast_has_querier_anywhere
+  br_multicast_has_router_adjacent
+  br_multicast_list_adjacent
+  dev_get_iflink
+  ip_mc_check_igmp
+  ipv6_mc_check_mld
+  netdev_master_upper_dev_get_rcu
+  skb_prepare_seq_read
+  skb_seq_read
 
 # required by gzvm.ko
   __traceiter_android_vh_gzvm_vcpu_exit_reason
@@ -30634,6 +30662,7 @@ wrap_directory_iterator
   __traceiter_android_vh_configfs_uevent_work
   __traceiter_android_vh_count_workingset_refault
   __traceiter_android_vh_do_anonymous_page
+  __traceiter_android_vh_do_async_mmap_readahead
   __traceiter_android_vh_do_group_exit
   __traceiter_android_vh_do_new_mount_fc
   __traceiter_android_vh_do_swap_page
@@ -30763,6 +30792,7 @@ wrap_directory_iterator
   __tracepoint_android_vh_configfs_uevent_work
   __tracepoint_android_vh_count_workingset_refault
   __tracepoint_android_vh_do_anonymous_page
+  __tracepoint_android_vh_do_async_mmap_readahead
   __tracepoint_android_vh_do_group_exit
   __tracepoint_android_vh_do_new_mount_fc
   __tracepoint_android_vh_do_swap_page
@@ -30850,6 +30880,7 @@ wrap_directory_iterator
   unlock_buffer
   __wait_on_buffer
   zs_lookup_class_index
+  utf8_data_table_new
 
 [abi_symbol_list]
 # commonly used symbols
@@ -30969,6 +31000,9 @@ wrap_directory_iterator
   __traceiter_cma_release
   __traceiter_android_vh_dma_buf_release
   __tracepoint_android_vh_dma_buf_release
+  __traceiter_android_vh_page_private_mod
+  __tracepoint_android_vh_page_private_mod
+  set_page_private
   mmc_set_blocklen
   nr_free_buffer_pages
 
@@ -31358,4 +31392,12 @@ __tracepoint_android_vh_copy_page_from_user
 __traceiter_android_vh_copy_page_from_user
 __tracepoint_android_vh_destroy_inode
 __traceiter_android_vh_destroy_inode
+
+# required by gzvm.ko
+__traceiter_android_vh_gzvm_destroy_vm_post_process
+__tracepoint_android_vh_gzvm_destroy_vm_post_process
+__traceiter_android_vh_gzvm_handle_demand_page_pre
+__traceiter_android_vh_gzvm_handle_demand_page_post
+__tracepoint_android_vh_gzvm_handle_demand_page_pre
+__tracepoint_android_vh_gzvm_handle_demand_page_post
 
